@@ -1,166 +1,54 @@
-{
- "cells": [
-  {
-   "cell_type": "markdown",
-   "id": "editorial-literature",
-   "metadata": {},
-   "source": [
-    " # Project 2: \"How to Help Craigs List Their Instruments\""
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "amino-oracle",
-   "metadata": {},
-   "source": [
-    "# Description\n",
-    "\n",
-    "Scrape post information from Craigslist.org in the San Francisco Bay Area region - Musical Instruments section.  The goal is to predict what features (attributes of posts) predict advertised sale price (in USD).   "
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "particular-england",
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2021-01-23T23:15:36.743381Z",
-     "start_time": "2021-01-23T23:15:36.730054Z"
-    }
-   },
-   "source": [
-    "# Features and Target Variables"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "improved-federal",
-   "metadata": {},
-   "source": [
-    "**Target Variable**: \n",
-    "* *Price*\n",
-    "    - Advertised price listed on search page results.\n",
-    "    - Integer\n",
-    "    - Units: USD\n",
-    "\n",
-    "**Features**:\n",
-    "* *has_pics*\n",
-    "    - Is there at least one picture in the posted ad?\n",
-    "    - Units: Scraped as boolean; converted to 0 & 1 in dataframe \n",
-    "* *title_char_count*\n",
-    "    - How long is the title of the posted ad?\n",
-    "    - Units: Number of characters\n",
-    "* *day*\n",
-    "    - What day of the month is the ad posted?\n",
-    "    - Integer representing calendar day (e.g., January 5th, 2021 is represented by '17')\n",
-    "* *hours*\n",
-    "    - What time of day was the ad posted?\n",
-    "    - Integer (1-24)\n",
-    "    - Units: hours in military time.  Hour is binned by the time in hh:mm.  Example, 15:01 and 15:59 both return '15'.\n",
-    "* *hood*\n",
-    "    - What is the location tagged to the posted ad?\n",
-    "    - Scraped at the 'neighborhood' scale (defined by Craigslist) from a dropdown list of neighborhoods.  Users could also chose to fill in their own location choice.  This resulted in >200 different neighborhoods from my scraping.  Because of time constraints, this feature was not included in the analysis for Project 2.  Future work can utilize Craiglist regional breakdown where the SF Bay Area is split into only 6 regions.  One hot encoding can then be applied to this location data."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "touched-commission",
-   "metadata": {},
-   "source": [
-    "# Data Used"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "considered-industry",
-   "metadata": {},
-   "source": [
-    "* html scraped from craigslist.org.\n",
-    "* Future work can include 2020 census data"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "failing-think",
-   "metadata": {},
-   "source": [
-    "# Tools Used"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "documentary-virgin",
-   "metadata": {},
-   "source": [
-    "* Python\n",
-    "* scikit-learn\n",
-    "* NumPy\n",
-    "* seaborn\n",
-    "* Google Chrome\n",
-    "* BeautifulSoup\n",
-    "* pandas\n",
-    "* matplotlib\n",
-    "* Adobe Illustrator"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "interesting-hybrid",
-   "metadata": {},
-   "source": [
-    "# Possible Impacts of My Project"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "interior-pickup",
-   "metadata": {},
-   "source": [
-    "This project can be used to understand what features a Craigslist ad posting may be predictive of the posted instrument sale price in the San Francisco Bay Area.  The feature testing of different ad attributes (e.g., time of post, location of post, length of post title) will help Craigslist users identify which attributes are most associated with ads with higher posted sale prices.  This is turn may be used to help guide users' own advertisement construction and implementation.  For example, if different neighborhood tags from the same geographic area (e.g., \"Oakland\" vs. \"94952\") predict different prices for the same item type, it may be beneficial to chose the location designation associated with higher posting price. This project will also help identify ad attributes that do not predict higher posted prices.  Initial results suggest that length of title, day of the week, and the inclusion of a picture do not predict higher posting price although more data needs to be collected to thoroughly explore this relationship.\n",
-    "\n",
-    "Future work may investigate granular geographic using the upcoming US Census data. "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "acting-primary",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.8.5"
-  },
-  "toc": {
-   "base_numbering": 1,
-   "nav_menu": {},
-   "number_sections": true,
-   "sideBar": true,
-   "skip_h1_title": false,
-   "title_cell": "Table of Contents",
-   "title_sidebar": "Contents",
-   "toc_cell": false,
-   "toc_position": {},
-   "toc_section_display": true,
-   "toc_window_display": false
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+# Project 2: \"How to Help Craigs List Their Instruments\""
+
+# Description
+* Scrape post information from Craigslist.org in the San Francisco Bay Area region - Musical Instruments section.  The goal is to predict what features (attributes of posts) predict advertised sale price (in USD).
+
+# Target & Feature Variables
+
+**Target**:
+* *Price*
+    * Advertised price listed on search page results
+    * Integer
+    * Units: USD
+    
+**Features**:
+* *has_pics*
+    * Is there at least one picture in the posted ad?
+    * Units: Scraped as boolean; converted to 0 & 1 in dataframe
+        
+* *title_char_count*
+    - How long is the title of the posted ad?
+    - Units: Number of characters
+* *day*
+    - What day of the month is the ad posted?
+    - Integer representing calendar day (e.g., January 5th, 2021 is represented by '17')
+* *hours*
+    - What time of day was the ad posted?
+    - Integer (1-24)
+    - Units: hours in military time.  Hour is binned by the time in hh:mm.  Example, 15:01 and 15:59 both return '15'
+* *hood*
+    - What is the location tagged to the posted ad?
+    - Scraped at the 'neighborhood' scale (defined by Craigslist) from a dropdown list of neighborhoods.  Users could also chose to fill in their own location choice.  This resulted in >200 different neighborhoods from my scraping.  Because of time constraints, this feature was not included in the analysis for Project 2.  Future work can utilize Craiglist regional breakdown where the SF Bay Area is split into only 6 regions.  One hot encoding can then be applied to this location data.
+
+# Data Used
+
+* html scraped from craigslist.org
+* Future work can include 2020 census data
+
+# Tools Used
+
+* Python
+* scikit-learn
+* NumPy
+* seaborn
+* Google Chrome
+* BeautifulSoup
+* pandas
+* matplotlib
+* Adobe Illustrator
+
+# Possible Impacts of My Project
+
+This project can be used to understand what features a Craigslist ad posting may be predictive of the posted instrument sale price in the San Francisco Bay Area.  The feature testing of different ad attributes (e.g., time of post, location of post, length of post title) will help Craigslist users identify which attributes are most associated with ads with higher posted sale prices.  This is turn may be used to help guide users' own advertisement construction and implementation.  For example, if different neighborhood tags from the same geographic area (e.g., \"Oakland\" vs. \"94952\") predict different prices for the same item type, it may be beneficial to chose the location designation associated with higher posting price. This project will also help identify ad attributes that do not predict higher posted prices.  Initial results suggest that length of title, day of the week, and the inclusion of a picture do not predict higher posting price although more data needs to be collected to thoroughly explore this relationship.
+
+Future work may investigate granular geographic using the upcoming US Census data. 
