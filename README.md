@@ -2,6 +2,7 @@
 
 # Description
 * Scrape post information from Craigslist.org in the San Francisco Bay Area region - Musical Instruments section.  The goal is to predict what features (attributes of posts) predict advertised sale price (in USD).
+* The 3 notebooks used to execute code for this project can be found in the folder "Working Notebooks"
 
 # Target & Feature Variables
 
@@ -11,11 +12,12 @@
     * Integer
     * Units: USD
     
+
 **Features**:
 * *has_pics*
     * Is there at least one picture in the posted ad?
     * Units: Scraped as boolean; converted to 0 & 1 in dataframe
-        
+    
 * *title_char_count*
     - How long is the title of the posted ad?
     - Units: Number of characters
